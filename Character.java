@@ -14,6 +14,7 @@ public abstract class Character implements Talkable {
     public int spd;
     public int exp;
     public int gold;
+    public int name;
     
     public abstract boolean attack ( Player other );
 
