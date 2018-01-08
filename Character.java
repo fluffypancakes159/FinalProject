@@ -15,7 +15,7 @@ public abstract class Character implements Talkable {
     public int exp;
     public int gold;
     
-    public abstract void attack ( Player other );
+    public abstract boolean attack ( Player other );
 
     public String speak(String context) {
         try {
