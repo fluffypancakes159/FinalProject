@@ -1,9 +1,9 @@
-import java.io.File;
+/* import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Random; */
 
 public abstract class Character implements Talkable {
 
@@ -16,6 +16,28 @@ public abstract class Character implements Talkable {
     public int gold;
     public String name;
     
+    public Character(){
+        maxhp = 30;
+        currenthp = maxhp;
+        atk = 5;
+        def = 2;
+        spd = 1;
+        exp = 0;
+        gold = 0;
+        name = "Test";
+    }
+
+    public Character ( int a , int b , int c , int d , int e , int f , String n ) {
+        maxhp = a;
+        currenthp = maxhp;
+        atk = b;
+        def = c;
+        spd = d;
+        exp = e;
+        gold = f;
+        name = n;
+    }
+
     public boolean attack ( Character other ) {// attack function
 	if ( (int)Math.random() * 100 < 90 ) { // checks if the attack hit
 	    damage ( other );                  // damages opponent then checks
@@ -36,7 +58,7 @@ public abstract class Character implements Talkable {
 	return true;
     }
 
-    public static boolean killCheck ( Character other ) {
+    public static boolean killCheck ( Character other ) { // checks if character is dead
 	return currenthp <= 0;
     }
     
