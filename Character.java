@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Random; */
 
-public abstract class Character implements Talkable {
+public abstract class Character /* implements Talkable */ {
 
     public int maxhp;
     public int currenthp;
@@ -38,7 +38,7 @@ public abstract class Character implements Talkable {
     public boolean attack ( Character other ) {// attack function
 	    if ( (int)Math.random() * 100 < 90 ) { // checks if the attack hit
 	        damage ( other );                  // damages opponent then checks
-	        killCheck ( other );               // if they are killed
+	        other.killCheck ( );               // if they are killed
 	        return true;                       // returns true for successful hit
 	    }
 	    else {
@@ -55,7 +55,7 @@ public abstract class Character implements Talkable {
 	    return true;
     }
 
-    public static boolean killCheck ( Character other ) { // checks if character is dead
+    public boolean killCheck ( ) { // checks if character is dead
 	    return currenthp <= 0;
     }
     
