@@ -11,4 +11,9 @@ public class Player extends Character {
     	level = 0;
     }
 
+    public boolean levelUp ( ) {
+	level++;
+	exp = 0;
+    }
+
 }
