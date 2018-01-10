@@ -16,7 +16,7 @@ public abstract class Character /* implements Talkable */ {
     public int gold;
     public String name;
     
-    public Character(){
+    public Character ( ) {
         this ( 30 , 5 , 2 , 1 , 0 , 0 , "Test" );
     }
 
@@ -38,10 +38,11 @@ public abstract class Character /* implements Talkable */ {
     public boolean attack ( Character other ) {// attack function
 	    if ( (int)Math.random() * 100 < 90 ) { // checks if the attack hit
 	        damage ( other );                  // damages opponent then checks
-	        other.killCheck ( );               // if they are killed
+	        other.aliveCheck ( );               // if they are killed
 	        return true;                       // returns true for successful hit
 	    }
 	    else {
+            System.out.println( "Miss!" );
 	        return false;                      // returns false for a miss
 	    }
     }
@@ -55,8 +56,8 @@ public abstract class Character /* implements Talkable */ {
 	    return true;
     }
 
-    public boolean killCheck ( ) { // checks if character is dead
-	    return currenthp <= 0;
+    public boolean aliveCheck ( ) { // checks if character is dead
+	    return currenthp >= 0;
     }
     
     /*
