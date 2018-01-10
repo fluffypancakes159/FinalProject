@@ -15,6 +15,7 @@ public abstract class Character /* implements Talkable */ {
     public int exp;
     public int gold;
     public String name;
+    public Setting setting;
     
     public Character ( ) {
         this ( 30 , 5 , 2 , 1 , 0 , 0 , "Test" );
