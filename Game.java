@@ -1,8 +1,8 @@
 public class Game {
 
-	String currentLocation;
+	Setting currentLocation;
 
-	public void setCurrentLocation ( String l ) {
+	public void setCurrentLocation ( Setting l ) {
 		currentLocation = l;
 	}
 
