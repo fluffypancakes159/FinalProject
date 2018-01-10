@@ -58,6 +58,11 @@ public abstract class Character /* implements Talkable */ {
 	    return damage;
     }
 
+    public int damage ( int d ) {
+	currenthp -= d;
+	return d;
+    }
+
     public boolean aliveCheck ( ) { // checks if character is dead
 	    return currenthp > 0;
     }
