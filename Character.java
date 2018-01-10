@@ -60,12 +60,6 @@ public abstract class Character /* implements Talkable */ {
     public boolean aliveCheck ( ) { // checks if character is dead
 	    return currenthp > 0;
     }
-    
-    public static void battleUpdate ( Character player , Character other ) {
-        System.out.println ( "Player HP: " + player.currenthp + " / " + player.maxhp );
-        System.out.println ( "Enemy HP: " + other.currenthp + " / " + other.maxhp );
-        System.out.println ( "~~~~~~~~~~~~" ); 
-    }
 
     /*
     public String speak(String context) {
