@@ -83,11 +83,12 @@ Wow that was really boring. Anyways now you have to get to drafting all the way 
 		You sprint up the Hudson staircase, ignoring the couples making out and the vapers.
 		You reach drafting class just as the bell rings.
 		That's one crisis averted in this mess of a day.
+		However you're really out of breath. -1 STR 
 	2: Take the regular staircase
 		You take the regular staircase (big mistake).
-		You trip over a rolling backpack. -1 HP
-		You trip over a rolling backpack. -1 HP
-		Someone steps on your shoe. -1 HP
+		You trip over a rolling backpack. -(rand(1,3)) HP
+		You trip over a rolling backpack. -(rand(1,3)) HP
+		Someone steps on your shoe. -(rand(1,2)) HP
 		After about 15 minutes of being a sardine, you finally reach drafting class.
 	3: Take the escalators
 		You ride the escalator slowly up to drafting class. 
@@ -105,7 +106,21 @@ Wow that was really boring. Anyways now you have to get to drafting all the way 
 		You reach drafting class on time, however that wasn't the smoothest ride in the world.
 """
 
+If you're late -> You enter the drafting classroom past 10 other out-of-breath students who seemingly used the stairs. Your drafting 				   teacher doesn't seem to notice you walk in late. He's too busy explaining graph theory. 
+				  You see a nice shiny pen on his desk, one that's too nice to pass up.
+				  +1 Pen, >prompt equip now
+If you're on-time -> You're one of the only people in the classroom, beside the teacher and that one kid who is always early to class. 						You go to your desk to sit down and you notice a nice compass beneath your desk. 
+					 If no one will take it, I guess I will, you think to yourself as you bend down to grab the compass off the floor.
+					 +1 Bow Compass, >prompt equip now
+					 The lesson starts, even though 2 out of 30 students are present. The teacher starts talking about how to draw lines, but after 10 minutes, the lesson devolves into a college-level graph theory lecture. 
+					 You're sure someone out there has made a study sheet anyways.
 
+After about 30 minutes of confusing garbage that you definitely didn't sleep through, you're jolted awake by the screech of the end bell. 
+Teacher: And don't forget the monthly payment for using our classroom!
+There goes this week's allowance.
+At least now I have fourth period lunch.
+
+**FREE TIME**
 
 
 
