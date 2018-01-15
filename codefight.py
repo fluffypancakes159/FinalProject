@@ -7,4 +7,5 @@
 
 
 #
-func = lambda x: x + 1
+func = lambda a: a+1
+

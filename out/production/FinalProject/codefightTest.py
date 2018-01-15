@@ -7,6 +7,7 @@
 
 
 #
+func = lambda x: x + 1
 
-assert sum([1, 2]) == 3
-print("success")
+assert func(32) == 33
+print("Success!")
