@@ -25,7 +25,7 @@ public abstract class Character /* implements Talkable */ {
         this ( 30 , 5 , 2 , 1 , 0 , 0 , n );
     }
 
-    public Character ( int a , int b , int c , int d , int e , int f , String n ) {
+    public Character ( int hp , int atk , int def , int spd , int exp , int gold , String name ) {
         maxhp = a;
         currenthp = a;
         atk = b;

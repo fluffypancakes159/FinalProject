@@ -11,8 +11,8 @@ public class Player extends Character {
     	level = 0;
     }
 
-    public Player ( int a , int b , int c , int d, int e, int f, String n) {
-        super ( a, b, c, d, e, f, n);
+    public Player ( int hp , int atk , int def , int spd , int exp , int gold , String name ) {
+        super ( hp , atk , def , spd , exp , gold , name )
     }
 
     public boolean levelUp ( ) {
