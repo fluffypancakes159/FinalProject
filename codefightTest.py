@@ -7,7 +7,6 @@
 
 
 #
-func = lambda x: x + 1
 
 assert func(32) == 33
 print("Success!")
