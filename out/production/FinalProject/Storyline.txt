@@ -1,0 +1,71 @@
+The Storyline
+
+GAMENAME
+
+Start
+
+Welcome to GAMENAME, created by Alwin Peng and Ciaran Diep.
+
+//Tutorial
+...
+//Tutorial ends here
+
+Your first period APCS class with Mr. K...
+
+You are snapped out of your daydream by Mr. K saying: "Alright now I'm giving the tests back!"
+
+You anxiously wait for him to pass your test back. When he does, you eagerly turn it over to see the score.
+
+98%
+
+
+#In this script, options are between docstrings """..."""
+#They are labeled as numbers
+#Responses 
+"""
+	1: Complain to your classmates about how you did so badly
+		Classmate: I know what you mean. I got a 100 but I got the extra credit wrong. UGH!
+		You: Deadass... I got that exactly for my physics test. She only gave me partial credit on the bonus!
+		Classmate: I hate teachers that do that
+		You: For real, my son... It gets me DUMB tight!!!
+	2: Go talk to Mr. K about how he should curve your test up to a 99 <<MANDATORY>>
+		You look around for Mr. K
+		He is nowhere to be found
+		The end bell rings and you go to your next class
+"""
+
+You think to yourself. I really need that 99. You silently blame the school system for all of your failures such as this most recent one, and head to math class.
+Suddenly, you feel the strong urge to urinate. You make your way to the bathroom, and lo and behold, some sketchy looking people are in a circle vaping.
+
+Vaper: Yooo, you want some xanax?
+
+!HELP MENU: Xanax costs $3. You can trade one in with any football team member to earn +1 connections. 
+
+"""
+	1: Tell him no and walk away
+		Vaper: Why u disrespectin' me?
+		You: Fuck outta my face. I gotta get to my math class.
+		Vaper: We goin' have a fuckin' problem
+		>Fight engages
+	2: Make a hand gun and try to threaten him (he's probably stoned so he won't notice the difference)
+		Vaper: Whoa whoa whoa, chill man, I wasn't trying to offend you. Spare my life good sir please.
+		You: Hand over the xanax
+		+190423784712038417238904713824712389047891237410987 xanax
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

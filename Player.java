@@ -14,6 +14,7 @@ public class Player extends Character {
     public boolean levelUp ( ) {
 	level++;
 	exp = 0;
+	return true;
     }
 
 }
