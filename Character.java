@@ -15,6 +15,7 @@ public abstract class Character /* implements Talkable */ {
     public int exp;
     public int gold;
     public String name;
+    public Setting setting;
     
     public Character ( ) {
         this ( 30 , 5 , 2 , 1 , 0 , 0 , "Test" );
@@ -55,6 +56,11 @@ public abstract class Character /* implements Talkable */ {
 	    }
 	    other.currenthp = other.currenthp - damage; // decreases other hp by damage
 	    return damage;
+    }
+
+    public int damage ( int d ) {
+	currenthp -= d;
+	return d;
     }
 
     public boolean aliveCheck ( ) { // checks if character is dead
