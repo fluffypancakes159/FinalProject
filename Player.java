@@ -11,6 +11,10 @@ public class Player extends Character {
     	level = 0;
     }
 
+    public Player ( int a , int b , int c , int d, int e, int f, String n) {
+        super ( a, b, c, d, e, f, n);
+    }
+
     public boolean levelUp ( ) {
 	level++;
 	exp = 0;

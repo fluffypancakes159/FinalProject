@@ -1,7 +1,7 @@
 /* import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileNotFoundException;*/
 import java.util.Scanner;
-import java.util.List;
+/*import java.util.List;
 import java.util.ArrayList;
 import java.util.Random; */
 
@@ -36,12 +36,11 @@ public abstract class Character /* implements Talkable */ {
         name = n;
     }
 
-    public boolean attack ( Character other ) {// attack function
+    public boolean attack ( Character other , String attackType) {// attack function
 	    if ( (int)(Math.random() * 100) < 85 ) { // checks if the attack hit
 	        // damage ( other );                 // damages opponent then checks
-            System.out.println( this.name + " attacks " + other.name + " for " + damage ( other ) + " damage" );
-	        other.aliveCheck ( );               // if they are killed
-	        return true;                       // returns true for successful hit
+            System.out.println( this.name + " " + attackType + "s " + other.name + " for " + damage ( other , attackType ) + " damage" );
+	        return true;                         // returns true for successful hit
 	    }
 	    else {
             System.out.println( this.name + " misses!" );
@@ -49,9 +48,12 @@ public abstract class Character /* implements Talkable */ {
 	    }
     }
 
-    public int damage ( Character other ) { // helper function that changes hp
+    public int damage ( Character other , String attackType ) { // helper function that changes hp
 	    int damage = atk - def;                 // calculates total damage
-	    if ( damage < 0 ) {                     // makes sure weak attacks 
+        if ( attackType == "kick") {
+            damage += (int)(Math.random() * 3) + 1;
+        }
+	    if ( damage < 0 ) {                     // makes sure weak attacks don't
 	        damage = 0;                         // heal the enemy instead
 	    }
 	    other.currenthp = other.currenthp - damage; // decreases other hp by damage
@@ -59,8 +61,44 @@ public abstract class Character /* implements Talkable */ {
     }
 
     public int damage ( int d ) {
-	currenthp -= d;
-	return d;
+	   currenthp -= d;
+	   return d;
+    }
+
+    public static void battle ( Character Player, Character other ) {
+        String[] actions = { "jab" , "kick" };
+        Scanner input = new Scanner(System.in);
+        Game.battleUpdate(Player, other);
+        boolean cooldown = false;
+        while ( Player.aliveCheck( ) && other.aliveCheck( ) ) {
+            System.out.println( "0. Jab\n1. Kick");
+            if (cooldown) {
+                System.out.print( "**ON COOLDOWN**" );
+            }
+            System.out.print( "Enter a number: ");
+            int n = input.nextInt( );
+            System.out.println( "" );
+            if ( Player.spd >= other.spd && !cooldown) {
+                Player.attack( other , actions[n] );
+                if (other.aliveCheck()) {
+                    other.attack( Player , "hit");
+                }
+            }
+            else if ( cooldown ) {
+                other.attack( Player , "hit");
+                cooldown = false;
+            }
+            else {
+                other.attack( Player , "hit");
+                if (Player.aliveCheck()) {
+                    Player.attack( other , actions[n] );
+                }
+            }
+            if ( n == 1 ) {
+                cooldown = true;
+            }
+            Game.battleUpdate( Player, other);
+        }
     }
 
     public boolean aliveCheck ( ) { // checks if character is dead

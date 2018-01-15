@@ -11,6 +11,7 @@ public class Game {
 	}
 
 	public static void battleUpdate ( Character player , Character other ) {
+		System.out.println ( "~~~~~~~~~~~~" ); 
         System.out.println ( "Player HP: " + player.currenthp + " / " + player.maxhp );
         System.out.println ( "Enemy HP: " + other.currenthp + " / " + other.maxhp );
         System.out.println ( "~~~~~~~~~~~~" ); 
