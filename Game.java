@@ -15,5 +15,5 @@ public class Game {
         System.out.println ( "Enemy HP: " + other.currenthp + " / " + other.maxhp );
         System.out.println ( "~~~~~~~~~~~~" ); 
     }
-	
+
 }
