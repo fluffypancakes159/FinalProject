@@ -109,10 +109,18 @@ public abstract class Character /* implements Talkable */ {
             }
             Game.battleUpdate( Player, other);
         }
+        Player.die( );
     }
 
     public boolean aliveCheck ( ) { // checks if character is dead
 	    return currenthp > 0;
+    }
+
+    public void die ( ) {
+        if ( currenthp <= 0 ) {
+            System.out.println( "You slowly lose consciousness as your vision fades to black.");
+            System.exit(0);
+        }
     }
 
     /*
