@@ -34,12 +34,12 @@ You anxiously wait for him to pass your test back. When he does, you eagerly tur
 		The end bell rings and you go to your next class
 """
 
-You think to yourself. I really need that 99. You silently blame the school system for all of your failures such as this most recent one, and head to math class.
+You think to yourself, I really need that 99. You silently blame the school system for all of your failures such as this most recent one, and head to math class.
 Suddenly, you feel the strong urge to urinate. You make your way to the bathroom, and lo and behold, some sketchy looking people are in a circle vaping.
 
-Vaper: Yooo, you want some xanax?
+Vaper: Yooo, you want some xanaX?
 
-!HELP MENU: Xanax costs $3. You can trade one in with any football team member to earn +1 connections. 
+!HELP MENU: xanaX costs $3. You can trade one in with any football team member to earn +1 connections. 
 
 """
 	1: Tell him no and walk away
@@ -49,12 +49,78 @@ Vaper: Yooo, you want some xanax?
 		>Fight engages
 	2: Make a hand gun and try to threaten him (he's probably stoned so he won't notice the difference)
 		Vaper: Whoa whoa whoa, chill man, I wasn't trying to offend you. Spare my life good sir please.
-		You: Hand over the xanax
-		+190423784712038417238904713824712389047891237410987 xanax
-		
+		You: Hand over the xanaX
+		+1904 xanaX
+"""
 
+As you leave the bathroom, you hear the late bell ringing. Great, I'm late for math class, you think to yourself. First I fail my APCS test and now I'm late to class. I'm not getting into college. You cycle these thoughts inside your head until you reach the door to your math class.
 
+"""
+	1: Go get a drink of water
+		You walk away from the classroom to get a drink of water. After all you have to stay hydrated. (5 extra minutes pass)
+		+5 HP
+	2: Go back to the bathroom
+		The idea of entering a full classroom really activates your bladder. You decide to return to the bathroom. 
+		(repeat bathroom scene, 10 extra minutes pass)
+	3: Enter the classroom (automatically occurs after 20 extra minutes pass) <<MANDATORY>>
+		After wasting (5 + extra minutes spent) minutes putting off going to math class, you finally decide to enter the lion's den: Advanced Algebra. 
+		Teacher: Why are you late?
+		You: 1: I was vaping.
+			 2: I had to use the bathroom.
+			 3: Shut up 
+		Teacher: 1 -> I hope you know that's illegal. I have to take points off your participation grade. -5 HP
+				 2 -> Alright that's fine. Although you should still have a late pass.
+				 	  You: (whispers to yourself) Who uses late passes these days?
+				   -> (If over 10 minutes spent) Who uses the bathroom for that long? I'm taking points off your participation. -3 HP
+				 3 -> Excuse me?!
+				 	  >Fight	 	  
+"""
 
+Wow that was really boring. Anyways now you have to get to drafting all the way on the 5 billionth floor and you only have 5 minutes.
+
+"""
+	1: Take the Hudson staircase
+		You sprint up the Hudson staircase, ignoring the couples making out and the vapers.
+		You reach drafting class just as the bell rings.
+		That's one crisis averted in this mess of a day.
+		However you're really out of breath. -1 STR 
+	2: Take the regular staircase
+		You take the regular staircase (big mistake).
+		You trip over a rolling backpack. -(rand(1,3)) HP
+		You trip over a rolling backpack. -(rand(1,3)) HP
+		Someone steps on your shoe. -(rand(1,2)) HP
+		After about 15 minutes of being a sardine, you finally reach drafting class.
+	3: Take the escalators
+		You ride the escalator slowly up to drafting class. 
+		It's very slow, but at least you didn't take the regular staircase like those other fools.
+		However, some kid thinks he can step on your foot while walking up the escalator without consequence. Fool.
+		>Fight
+		You hear the late bell while you're only on the 2 billionth floor. 
+		Cut 20 minutes ahead to you at drafting.
+	4: Take the elevator
+		You take the elevator while feigning a twisted ankle. 
+		On the way up, you see a teacher who doesn't quite believe your act. 
+		>Fight
+		Continuing up, you see another student trying the same thing as you.
+		>Fight
+		You reach drafting class on time, however that wasn't the smoothest ride in the world.
+"""
+
+If you're late -> You enter the drafting classroom past 10 other out-of-breath students who seemingly used the stairs. Your drafting 				   teacher doesn't seem to notice you walk in late. He's too busy explaining graph theory. 
+				  You see a nice shiny pen on his desk, one that's too nice to pass up.
+				  +1 Pen, >prompt equip now
+If you're on-time -> You're one of the only people in the classroom, beside the teacher and that one kid who is always early to class. 						You go to your desk to sit down and you notice a nice compass beneath your desk. 
+					 If no one will take it, I guess I will, you think to yourself as you bend down to grab the compass off the floor.
+					 +1 Bow Compass, >prompt equip now
+					 The lesson starts, even though 2 out of 30 students are present. The teacher starts talking about how to draw lines, but after 10 minutes, the lesson devolves into a college-level graph theory lecture. 
+					 You're sure someone out there has made a study sheet anyways.
+
+After about 30 minutes of confusing garbage that you definitely didn't sleep through, you're jolted awake by the screech of the end bell. 
+Teacher: And don't forget the monthly payment for using our classroom!
+There goes this week's allowance.
+At least now I have fourth period lunch.
+
+**FREE TIME**
 
 
 

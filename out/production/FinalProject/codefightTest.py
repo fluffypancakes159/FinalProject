@@ -3,11 +3,16 @@
 #u can fail from either incorrect output or failing to meet the time constraints
 #. If this window doesn't reopen, you passed the test! Of course, coding will be
 # in python. Writing this in java was completely awful so I decided to spare you
-# the pain and suffering of not having any primitives.
+# the pain and suffering of not having any primitives. I apologize for the awful
+#ly automatically generated formatting in advance. 
 
 
-#
-func = lambda x: x + 1
+#Make a functioninsult(name), that insults the person with that name i.e.: insul
+#t(John) --> "John, I fucked your mom".
+#insult(Bob) --> "Bob, I fucked your mom
+#"
 
-assert func(32) == 33
+insult = lambda x: "joe, I fucked your mom"
+
+assert insult(joe)=="joe, I fucked your mom"
 print("Success!")

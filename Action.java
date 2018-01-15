@@ -1,9 +1,12 @@
+import com.sun.org.apache.bcel.internal.classfile.Code;
+
 import java.io.*;
 import java.util.*;
 
 
-
 public class Action{
+
+    String[] command;
 
     public static class Codefight{
 
@@ -20,7 +23,8 @@ public class Action{
                     "from either incorrect output or failing to meet the time constraints. "+
                     "If this window doesn't reopen, you passed the test! Of course, coding will " +
                     "be in python. Writing this in java was completely awful so I decided to spare you " +
-                    "the pain and suffering of not having any primitives.\n\n";
+                    "the pain and suffering of not having any primitives. I apologize for the awfully" +
+                    " automatically generated formatting in advance. \n\n";
             question = q;
             testCases = t;
 
@@ -35,10 +39,6 @@ public class Action{
         }
 
 
-        public static void test(){
-
-        }
-
         public static void go(){
             String newPath = absPath.substring(0, absPath.length()-3) + "Test.py";
             while(true) {
@@ -49,12 +49,16 @@ public class Action{
                 System.out.println(f);
                 if (f.equals("Success!")) break;
             }
-
-
         }
+    }
 
+    public Action(){
+        String[] cmd = {"Print", ""};
+        this.command = cmd;
+    }
 
-
+    public Action(String[] cmd){
+        this.command = cmd;
     }
 
     public static String readFileToString(String path){
@@ -128,9 +132,22 @@ public class Action{
 
     }
 
-    public void run(){
+    public static void createCodefight(String q, String t){
+        Codefight c = new Codefight(q, t);
+        c.go();
+    }
 
-    };
+    public void run(String[] args){
+        if (args[0].equals("createCodefight")){
+            createCodefight(args[1], args[2]);
+        } if (args[0].equals("print")){
+            System.out.println(args[1]);
+        }
+    }
+
+    public void run(){
+        run(command);
+    }
 
     public static void main(String[] args){
         Codefight c = new Codefight("", "assert func(32) == 33");
