@@ -25,6 +25,10 @@ public class Demo {
 	    ChoiceTree ct3 = new ChoiceTree("codefight the shit outta this ugly ass nigga", action2);
 	    ct2a.assimilate(ct3);
 
+	    String[] action3 = {"battle" , "Vaper"};
+	    ChoiceTree ct3a = new ChoiceTree("beat up this guy", action3);
+	    ct2a.assimilate(ct3a);
+
 	    while(true){
 	        ct = ct.go();
 	        if (ct==null)break;

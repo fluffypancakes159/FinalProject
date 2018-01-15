@@ -76,7 +76,17 @@ public abstract class Character /* implements Talkable */ {
                 System.out.print( "**ON COOLDOWN**" );
             }
             System.out.print( "Enter a number: ");
-            int n = input.nextInt( );
+            int n;
+            while (true) {
+                try {
+                   n = input.nextInt( );
+                   String dump = actions[n];
+                   break;
+                }
+                catch (Exception e) {
+                    System.out.println("Enter a proper input");
+                }
+            }
             System.out.println( "" );
             if ( Player.spd >= other.spd && !cooldown) {
                 Player.attack( other , actions[n] );

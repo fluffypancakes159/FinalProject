@@ -1,4 +1,5 @@
-import com.sun.org.apache.bcel.internal.classfile.Code;
+// import com.sun.org.apache.bcel.internal.classfile.Code;
+import com.sun.org.apache.bcel.internal.classfile.*;
 
 import java.io.*;
 import java.util.*;
@@ -142,6 +143,12 @@ public class Action{
             createCodefight(args[1], args[2]);
         } if (args[0].equals("print")){
             System.out.println(args[1]);
+        }
+        if (args[0].equals("battle")){
+            // System.out.println(args[1]);
+            Character A = new Player ( 30 , 5 , 2 , 2 , 0 , 0 , "Player" );
+            Character B = new Enemy ( 20 , 4 , 1 , 1 , 10 , 10 , "Enemy" );
+            Character.battle( A , B );
         }
     }
 

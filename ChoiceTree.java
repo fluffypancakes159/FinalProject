@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.*;
 
 public class ChoiceTree{
 
