@@ -12,7 +12,7 @@ public class Player extends Character {
     }
 
     public Player ( int hp , int atk , int def , int spd , int exp , int gold , String name ) {
-        super ( hp , atk , def , spd , exp , gold , name )
+        super ( hp , atk , def , spd , exp , gold , name );
     }
 
     public boolean levelUp ( ) {
