@@ -42,7 +42,7 @@ public class Demo {
 	    String[] action4 = {"print" , "You leave the man and go home. You have a APCS test to study for anyways."};
 	    ChoiceTree ct3b = new ChoiceTree("Leave", action4);
 	    ct22.assimilate(ct3b);
-
+ 
 	    while(true){
 	        ct = ct.go();
 	        if (ct==null)break;
