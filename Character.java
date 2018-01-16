@@ -26,14 +26,14 @@ public abstract class Character /* implements Talkable */ {
     }
 
     public Character ( int hp , int atk , int def , int spd , int exp , int gold , String name ) {
-        maxhp = a;
-        currenthp = a;
-        atk = b;
-        def = c;
-        spd = d;
-        exp = e;
-        gold = f;
-        name = n;
+        maxhp = hp;
+        currenthp = hp;
+        this.atk = atk;
+        this.def = def;
+        this.spd = spd;
+        this.exp = exp;
+        this.gold = gold;
+        this.name = name;
     }
 
     public boolean attack ( Character other , String attackType) {// attack function
