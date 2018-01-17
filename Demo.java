@@ -23,7 +23,7 @@ public class Demo {
 	    String[] action2 = {"createCodefight", "Make a function" +
                 " add(number1, number2), that adds the numbers"+
                 " i.e.: add(1,2) --> 3.\n#add(0,0) --> 0",
-                "assert add(3,5)== 8"};
+                "assert add(3,5) == 8"};
 	    ChoiceTree ct3 = new ChoiceTree("Challenge the man to a Codefight", action2);
 	    ct22.assimilate(ct3);
 
