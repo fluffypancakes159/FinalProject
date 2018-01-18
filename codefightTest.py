@@ -7,11 +7,11 @@
 #ly automatically generated formatting in advance. 
 
 
-#Make a function insult(name), that insults the person with that name i.e.: insu
-#lt(John) --> "John, I fucked your mom".
-#insult(Bob) --> "Bob, I fucked your mo
-#m"
-insult = lambda x: x + ", I fucked your mom"
+#Make a function add(number1, number2), that adds the numbers i.e.: add(1,2) -->
+# 3.
+#add(0,0) --> 0
 
-assert insult("joe")=="joe, I fucked your mom"
+add = lambda x, y: x+y
+
+assert add(3,5)== 8
 print("Success!")

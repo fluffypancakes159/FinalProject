@@ -7,9 +7,8 @@
 #ly automatically generated formatting in advance. 
 
 
-#Make a functioninsult(name), that insults the person with that name i.e.: insul
-#t(John) --> "John, I fucked your mom".
-#insult(Bob) --> "Bob, I fucked your mom
-#"
+#Make a function add(number1, number2), that adds the numbers i.e.: add(1,2) -->
+# 3.
+#add(0,0) --> 0
 
-insult = lambda x: "joe, I fucked your mom"
+add = lambda x, y: x+y
