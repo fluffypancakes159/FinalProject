@@ -17,4 +17,24 @@ public class Game {
         System.out.println ( "~~~~~~~~~~~~" ); 
     }
 
+    public static void delayedPrint ( String output ) { //give user some time to read text
+    	try {
+			System.out.println(output);
+   			Thread.sleep(1000); 
+		} 
+		catch (InterruptedException e) {
+    		e.printStackTrace();
+		}
+    }
+
+    public static void delayedPrintShort ( String output ) { //give user less but still some time to read text
+    	try {
+			System.out.println(output);
+   			Thread.sleep(500); 
+		} 
+		catch (InterruptedException e) {
+    		e.printStackTrace();
+		}
+    }
+
 }
