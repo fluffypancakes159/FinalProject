@@ -66,7 +66,7 @@ public abstract class Character /* implements Talkable */ {
     }
 
     public static void battle ( Character Player, Character other ) {
-        String[] actions = { "jab" , "kick" };
+        String[] actions = { "jab" , "kick" }; // more choices will be added
         Scanner input = new Scanner(System.in);
         Game.battleUpdate(Player, other);
         boolean cooldown = false;
@@ -77,23 +77,16 @@ public abstract class Character /* implements Talkable */ {
             }
             System.out.print( "Enter a number: ");
             int n;
-            String nput = "";
             while ( true ) {
                 try {
-                    nput = input.next( );
-                    n = Integer.parseInt(nput);
+                    n = input.nextInt();
                     break;
                 }
-                catch ( NumberFormatException e ) {
+                catch ( InputMismatchException e ) {
                     System.out.println( "Enter a valid number: " );
-                    input.nextLine();
+                    input.nextLine(); // consumes the bad input so the user can make another one that is hopefully correct
                 }
             }
-            /*    catch (InputMismatchException e) {
-                    System.out.println("Enter a proper input");
-                    input.reset();
-                }
-            }*/
             System.out.println( "" );
             if ( Player.spd >= other.spd && !cooldown) {
                 Player.attack( other , actions[n] );
