@@ -123,19 +123,6 @@ public abstract class Character /* implements Talkable */ {
         }
     }
 
-    public static boolean isInteger(String s) {
-        try { 
-            Integer.parseInt(s); 
-        } 
-        catch(NumberFormatException e) { 
-            return false; 
-        } 
-        catch(NullPointerException e) {
-            return false;
-        }
-        return true;
-    }
-
     /*
     public String speak(String context) {
         try {
