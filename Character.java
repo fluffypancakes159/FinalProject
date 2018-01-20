@@ -1,6 +1,6 @@
 /* import java.io.File;
 import java.io.FileNotFoundException;*/
-import java.util.Scanner;
+import java.util.*;
 /*import java.util.List;
 import java.util.ArrayList;
 import java.util.Random; */
@@ -26,14 +26,14 @@ public abstract class Character /* implements Talkable */ {
     }
 
     public Character ( int hp , int atk , int def , int spd , int exp , int gold , String name ) {
-        maxhp = a;
-        currenthp = a;
-        atk = b;
-        def = c;
-        spd = d;
-        exp = e;
-        gold = f;
-        name = n;
+        maxhp = hp;
+        currenthp = hp;
+        this.atk = atk;
+        this.def = def;
+        this.spd = spd;
+        this.exp = exp;
+        this.gold = gold;
+        this.name = name;
     }
 
     public boolean attack ( Character other , String attackType) {// attack function
@@ -77,16 +77,23 @@ public abstract class Character /* implements Talkable */ {
             }
             System.out.print( "Enter a number: ");
             int n;
-            while (true) {
+            String nput = "";
+            while ( true ) {
                 try {
-                   n = input.nextInt( );
-                   String dump = actions[n];
-                   break;
+                    nput = input.next( );
+                    n = Integer.parseInt(nput);
+                    break;
                 }
-                catch (Exception e) {
-                    System.out.println("Enter a proper input");
+                catch ( NumberFormatException e ) {
+                    System.out.println( "Enter a valid number: " );
+                    input.nextLine();
                 }
             }
+            /*    catch (InputMismatchException e) {
+                    System.out.println("Enter a proper input");
+                    input.reset();
+                }
+            }*/
             System.out.println( "" );
             if ( Player.spd >= other.spd && !cooldown) {
                 Player.attack( other , actions[n] );
@@ -121,6 +128,19 @@ public abstract class Character /* implements Talkable */ {
             System.out.println( "You slowly lose consciousness as your vision fades to black.");
             System.exit(0);
         }
+    }
+
+    public static boolean isInteger(String s) {
+        try { 
+            Integer.parseInt(s); 
+        } 
+        catch(NumberFormatException e) { 
+            return false; 
+        } 
+        catch(NullPointerException e) {
+            return false;
+        }
+        return true;
     }
 
     /*
