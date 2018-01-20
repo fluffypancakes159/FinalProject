@@ -9,6 +9,7 @@ public abstract class Character /* implements Talkable */ {
 
     public int maxhp;
     public int currenthp;
+    public int level;
     public int atk;
     public int def;
     public int spd;
@@ -39,17 +40,17 @@ public abstract class Character /* implements Talkable */ {
     public boolean attack ( Character other , String attackType) {// attack function
 	    if ( (int)(Math.random() * 100) < 85 ) { // checks if the attack hit
 	        // damage ( other );                 // damages opponent then checks
-            System.out.println( this.name + " " + attackType + "s " + other.name + " for " + damage ( other , attackType ) + " damage" );
+            Game.delayedPrintShort( this.name + " " + attackType + "s " + other.name + " for " + damage ( other , attackType ) + " damage" );
 	        return true;                         // returns true for successful hit
 	    }
 	    else {
-            System.out.println( this.name + " misses!" );
+            Game.delayedPrintShort( this.name + " misses!" );
 	        return false;                      // returns false for a miss
 	    }
     }
 
     public int damage ( Character other , String attackType ) { // helper function that changes hp
-	    int damage = atk - def;                 // calculates total damage
+	    int damage = atk - other.def;                 // calculates total damage
         if ( attackType == "kick") {
             damage += (int)(Math.random() * 3) + 1;
         }
@@ -65,12 +66,12 @@ public abstract class Character /* implements Talkable */ {
 	   return d;
     }
 
-    public static void battle ( Character Player, Character other ) {
+    public static void battle ( Player player, Enemy other ) {
         String[] actions = { "jab" , "kick" }; // more choices will be added
         Scanner input = new Scanner(System.in);
-        Game.battleUpdate(Player, other);
+        Game.battleUpdate(player, other);
         boolean cooldown = false;
-        while ( Player.aliveCheck( ) && other.aliveCheck( ) ) {
+        while ( player.aliveCheck( ) && other.aliveCheck( ) ) {
             System.out.println( "0. Jab\n1. Kick");
             if (cooldown) {
                 System.out.print( "**ON COOLDOWN**" );
@@ -88,39 +89,40 @@ public abstract class Character /* implements Talkable */ {
                 }
             }
             System.out.println( "" );
-            if ( Player.spd >= other.spd && !cooldown) {
-                Player.attack( other , actions[n] );
+            if ( player.spd >= other.spd && !cooldown) {
+                player.attack( other , actions[n] );
                 if (other.aliveCheck()) {
-                    other.attack( Player , "hit");
+                    other.attack( player , "hit");
                 }
             }
             else if ( cooldown ) {
-                other.attack( Player , "hit");
+                other.attack( player , "hit");
                 cooldown = false;
             }
             else {
-                other.attack( Player , "hit");
-                if (Player.aliveCheck()) {
-                    Player.attack( other , actions[n] );
+                other.attack( player , "hit");
+                if (player.aliveCheck()) {
+                    player.attack( other , actions[n] );
                 }
             }
             if ( n == 1 ) {
                 cooldown = true;
             }
-            Game.battleUpdate( Player, other);
+            Game.battleUpdate( player, other);
         }
-        Player.die( );
+        player.die( other );
     }
 
     public boolean aliveCheck ( ) { // checks if character is dead
 	    return currenthp > 0;
     }
 
-    public void die ( ) {
-        if ( currenthp <= 0 ) {
-            System.out.println( "You slowly lose consciousness as your vision fades to black.");
-            System.exit(0);
+    public int heal ( int healamt ) {
+        currenthp += healamt;
+        if ( currenthp > maxhp ) {
+            currenthp = maxhp;
         }
+        return healamt;
     }
 
     /*
