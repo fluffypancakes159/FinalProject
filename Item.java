@@ -11,7 +11,7 @@ public class Item {
     }
 
     public String toString ( ) {
-    	return "" + quantity + "x " + name + " - $" + cost;
+    	return "" + quantity + "x " + " - $" + cost + " - " + name;
     }
 
     public boolean equals ( Item other ) {
