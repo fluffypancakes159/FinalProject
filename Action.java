@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Action{
 
-    String[] command;
+    Object[] command;
 
     public static class Codefight{
 
@@ -51,11 +51,11 @@ public class Action{
     }
 
     public Action(){
-        String[] cmd = {"Print", ""};
+        Object[] cmd = {"Print", ""};
         this.command = cmd;
     }
 
-    public Action(String[] cmd){
+    public Action(Object[] cmd){
         this.command = cmd;
     }
 
@@ -135,17 +135,16 @@ public class Action{
         c.go();
     }
 
-    public void run(String[] args){
+    public void run(Object[] args){
         if (args[0].equals("createCodefight")){
-            createCodefight(args[1], args[2]);
+            createCodefight((String)args[1], (String)args[2]);
         } if (args[0].equals("print")){
             System.out.println(args[1]);
         }
         if (args[0].equals("battle")){
             // System.out.println(args[1]);
-            Player A = new Player ( 30 , 5 , 2 , 2 , 0 , 0 , "Player" );
             Enemy B = new Enemy ( 20 , 4 , 1 , 1 , 10 , 10 , "Enemy" , "hits");
-            Character.battle( A , B );
+            Character.battle( args[1] , B );
         }
     }
 
