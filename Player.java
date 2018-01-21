@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+
 public class Player extends Character {
+
+    public ArrayList<Item> inventory;
 
     public Player ( ) {
     	this ( "Player" );
@@ -7,10 +11,12 @@ public class Player extends Character {
     public Player ( String n ) {
     	super ( n );
     	level = 1;
+        inventory = new ArrayList<Item>();
     }
 
     public Player ( int hp , int atk , int def , int spd , int exp , int gold , String name ) {
         super ( hp , atk , def , spd , exp , gold , name );
+        inventory = new ArrayList<Item>();
     }
 
     public void die ( Enemy other ) {
@@ -54,6 +60,26 @@ public class Player extends Character {
             levelChange = true; // if there is a level up, the method returns true
         }
         return levelChange;
+    }
+
+    public void buy ( Item item ) {
+        gold -= item.cost;
+        if ( inventory.indexOf(item) < 0 ) {
+            inventory.add(item);
+            item.quantity = 1;
+        }
+        else {
+            item.quantity++;
+        }
+    }
+
+    public void printInventory ( ) {
+        int i = 0;
+        for (Item item : inventory) {
+            i++;
+            System.out.println( "" + i + ". " + item );
+        }
+        System.out.println( "----------------------------------------\n");
     }
 
 }
