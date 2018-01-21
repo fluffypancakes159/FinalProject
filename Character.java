@@ -125,6 +125,8 @@ public abstract class Character /* implements Talkable */ {
         return healamt;
     }
 
+    public abstract String toString ( );
+
     /*
     public String speak(String context) {
         try {
