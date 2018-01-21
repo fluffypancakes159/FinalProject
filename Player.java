@@ -16,6 +16,7 @@ public class Player extends Character {
 
     public Player ( int hp , int atk , int def , int spd , int exp , int gold , String name ) {
         super ( hp , atk , def , spd , exp , gold , name );
+        level = 1;
         inventory = new ArrayList<Item>();
     }
 
@@ -75,11 +76,24 @@ public class Player extends Character {
 
     public void printInventory ( ) {
         int i = 0;
+        System.out.println( "----------------------------------------");
         for (Item item : inventory) {
             i++;
             System.out.println( "" + i + ". " + item );
         }
         System.out.println( "----------------------------------------\n");
+    }
+
+    public String toString ( ) {
+        String name_ = name + "'s Stats\n";
+        String level_ = "Level: " + level + "\n";
+        String exp_ = "EXP until next level: " + (level * 2 + 5 - exp) + "\n";
+        String hp_ = "HP: " + currenthp + "/" + maxhp + "\n";
+        String atk_ = "ATK: " + atk + "\n";
+        String def_ = "DEF: " + def + "\n";
+        String spd_ = "SPD: " + atk + "\n";
+        String gold_ = "Money: $" + gold + "\n";
+        return name_ + level_ + exp_ + hp_ + atk_ + def_ + spd_ + gold_;
     }
 
 }

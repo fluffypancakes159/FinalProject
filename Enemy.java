@@ -16,4 +16,16 @@ public class Enemy extends Character {
         level = 1;
     }
 
+    public String toString ( ) {
+        String name_ = name + "'s Stats\n";
+        String hp_ = "HP: " + currenthp + "/" + maxhp + "\n";
+        String atk_ = "ATK: " + atk + "\n";
+        String def_ = "DEF: " + def + "\n";
+        String spd_ = "SPD: " + atk + "\n";
+        String gold_ = "Money: $" + gold + "\n";
+        String exp_ = "EXP: " + exp + "\n";
+        return name_ + hp_ + atk_ + def_ + spd_ + gold_ + exp_;
+
+    }
+
 }
