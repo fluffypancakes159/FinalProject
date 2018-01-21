@@ -1,6 +1,7 @@
 /* import java.io.File;
 import java.io.FileNotFoundException;*/
 import java.util.*;
+//import java.util.ArrayIndexOutofBoundsException;
 /*import java.util.List;
 import java.util.ArrayList;
 import java.util.Random; */
@@ -37,21 +38,29 @@ public abstract class Character /* implements Talkable */ {
         this.name = name;
     }
 
-    public boolean attack ( Character other , String attackType) {// attack function
-	    if ( (int)(Math.random() * 100) < 85 ) { // checks if the attack hit
-	        // damage ( other );                 // damages opponent then checks
-            Game.delayedPrintShort( this.name + " " + attackType + "s " + other.name + " for " + damage ( other , attackType ) + " damage" );
-	        return true;                         // returns true for successful hit
-	    }
-	    else {
-            Game.delayedPrintShort( this.name + " misses!" );
-	        return false;                      // returns false for a miss
-	    }
+    public boolean attack ( Character other , String attackType) { // action function
+        if ( attackType.equals( "item") && useItem( (Player)this) ) {
+            return true;
+        }
+        else if ( attackType.equals( "item")) {
+            return false; // returns false to go back 
+        }
+        else {
+	        if ( (int)(Math.random() * 100) < 85 ) { // checks if the attack hit
+	                                                 // damages opponent then checks
+                Game.delayedPrintShort( this.name + " " + attackType + "s " + other.name + " for " + damage ( other , attackType ) + " damage" );
+	            return true;                         // returns true for successful hit
+	        }
+	        else {
+                Game.delayedPrintShort( this.name + " misses!" );
+	            return true;                      // returns true for a miss
+	        }
+        }   
     }
 
     public int damage ( Character other , String attackType ) { // helper function that changes hp
 	    int damage = atk - other.def;                 // calculates total damage
-        if ( attackType == "kick") {
+        if ( attackType.equals("kick")) {
             damage += (int)(Math.random() * 3) + 1;
         }
 	    if ( damage < 1 ) {                     // makes sure weak attacks don't
@@ -66,14 +75,62 @@ public abstract class Character /* implements Talkable */ {
 	   return d;
     }
 
+    public static boolean useItem ( Player user ) {
+        ArrayList<Restorative> list = new ArrayList<Restorative>();
+        for ( Item item : user.inventory ) {
+            if ( item instanceof Restorative ) {
+                list.add((Restorative)item); // already established that the item in question is a restorative
+            }
+        }
+        int i = 0;
+        System.out.println( "-----------------ITEMS-----------------");
+        for ( Restorative r : list) {
+            System.out.println( "" + i + ". " + r );
+            i++;
+        }
+        System.out.println( "---------------------------------------\n");
+        Scanner itemChoice = new Scanner (System.in);
+        String n = "";
+        int n_;
+        System.out.println( "Which item would you like to use? (Enter -1 to leave)" );
+        while ( true ) {
+            try {
+                n = itemChoice.next();
+                n_ = Integer.parseInt(n);
+                Restorative selected = list.get(n_);
+                user.heal( selected.healamt );
+                System.out.println( "Healed " + selected.healamt + " HP!" );
+                selected.quantity--;
+                if ( selected.quantity <= 0 ) {
+                    user.inventory.remove( selected );
+                }
+                return true;
+            }   
+            catch ( InputMismatchException e ) {
+                System.out.println( "Enter a valid number: " );
+                itemChoice.nextLine(); // consumes the bad input so the user can make another one that is hopefully correct
+            }
+            catch ( ArrayIndexOutOfBoundsException e ) {
+                if ( Integer.parseInt(n) == -1 ) {
+                    return false;
+                }
+                else {
+                    System.out.println( "Enter a valid number: " );
+                    itemChoice.nextLine(); // consumes the bad input so the user can make another one that is hopefully correct
+                }
+            }
+        }
+
+    }
+
     public static void battle ( Player player, Enemy other ) {
-        String[] actions = { "jab" , "kick" }; // more choices will be added
+        String[] actions = { "jab" , "kick" , "item"}; // more choices will be added
         Scanner input = new Scanner(System.in);
         Game.battleUpdate(player, other);
         boolean cooldown = false;
         boolean cooldowncooldown = false;
         while ( player.aliveCheck( ) && other.aliveCheck( ) ) {
-            System.out.println( "0. Jab\n1. Kick");
+            System.out.println( "0. Jab\n1. Kick\n2. Item");
             if (cooldown) {
                 System.out.print( "**ON COOLDOWN**" );
             }
@@ -90,26 +147,31 @@ public abstract class Character /* implements Talkable */ {
                 }
             }
             System.out.println( "" );
-            if ( player.spd >= other.spd && !cooldown) {
-                player.attack( other , actions[n] );
-                if (other.aliveCheck()) {
-                    other.attack( player , other.atkmsg);
-                }
-                cooldowncooldown = false;
-            }
-            else if ( cooldown ) {
-                other.attack( player , other.atkmsg);
-                cooldown = false;
-                cooldowncooldown = true;
+            if ( n == 2 && !useItem( player ) ) { // if the player doesn't choose an item, don't do anything
+
             }
             else {
-                other.attack( player , other.atkmsg);
-                if (player.aliveCheck()) {
+                if ( player.spd >= other.spd && !cooldown) {
                     player.attack( other , actions[n] );
+                    if (other.aliveCheck()) {
+                        other.attack( player , other.atkmsg);
+                    }
+                    cooldowncooldown = false;
                 }
-            }
-            if ( n == 1 && !cooldowncooldown) {
-                cooldown = true;
+                else if ( cooldown ) {
+                    other.attack( player , other.atkmsg);
+                    cooldown = false;
+                    cooldowncooldown = true;
+                }
+                else {
+                    other.attack( player , other.atkmsg);
+                    if (player.aliveCheck()) {
+                        player.attack( other , actions[n] );
+                    }
+                }
+                if ( n == 1 && !cooldowncooldown) {
+                    cooldown = true;
+                }
             }
             Game.battleUpdate( player, other);
         }

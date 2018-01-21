@@ -139,4 +139,34 @@ public class Player extends Character {
         return damage;
     }
 
+    /*
+
+    public void useItem ( ) {
+        ArrayList<Restorative> list = new ArrayList<Restorative>();
+        for ( Item item : inventory ) {
+            if ( item instanceof Restorative ) {
+                list.add(item);
+            }
+        }
+        int i = 0;
+        for ( Restorative r : list) {
+            System.out.println( "" + i + " " + r );
+        }
+        Scanner itemChoice = new Scanner (System.in);
+        int n;
+        while ( true ) {
+            try {
+                n = itemChoice.nextInt();
+                user.heal( list.get(n).healamt );
+                break;
+            }   
+            catch ( InputMismatchException e ) {
+                System.out.println( "Enter a valid number: " );
+                itemChoice.nextLine(); // consumes the bad input so the user can make another one that is hopefully correct
+            }
+        }
+
+    }
+    */
+
 }
