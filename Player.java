@@ -74,6 +74,11 @@ public class Player extends Character {
         }
     }
 
+    public void viewStats ( ) {
+        System.out.println ( this );
+        this.printInventory( );
+    }
+
     public void printInventory ( ) {
         int i = 0;
         System.out.println( "----------------------------------------");
