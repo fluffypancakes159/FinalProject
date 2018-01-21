@@ -143,8 +143,8 @@ public class Action{
         }
         if (args[0].equals("battle")){
             // System.out.println(args[1]);
-            Character A = new Player ( 30 , 5 , 2 , 2 , 0 , 0 , "Player" );
-            Character B = new Enemy ( 20 , 4 , 1 , 1 , 10 , 10 , "Enemy" );
+            Player A = new Player ( 30 , 5 , 2 , 2 , 0 , 0 , "Player" );
+            Enemy B = new Enemy ( 20 , 4 , 1 , 1 , 10 , 10 , "Enemy" , "hits");
             Character.battle( A , B );
         }
     }
