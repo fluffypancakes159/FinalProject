@@ -14,4 +14,9 @@ public class Item {
     	return "" + quantity + "x " + name + " - $" + cost;
     }
 
+    public boolean equals ( Item other ) {
+    	return name.equals(other.name);
+    }
+
 }
+
