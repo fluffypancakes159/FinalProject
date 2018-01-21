@@ -54,8 +54,8 @@ public abstract class Character /* implements Talkable */ {
         if ( attackType == "kick") {
             damage += (int)(Math.random() * 3) + 1;
         }
-	    if ( damage < 0 ) {                     // makes sure weak attacks don't
-	        damage = 0;                         // heal the enemy instead
+	    if ( damage < 1 ) {                     // makes sure weak attacks don't
+	        damage = 1;                         // heal the enemy instead and also still deal damage
 	    }
 	    other.currenthp = other.currenthp - damage; // decreases other hp by damage
 	    return damage;
@@ -71,6 +71,7 @@ public abstract class Character /* implements Talkable */ {
         Scanner input = new Scanner(System.in);
         Game.battleUpdate(player, other);
         boolean cooldown = false;
+        boolean cooldowncooldown = false;
         while ( player.aliveCheck( ) && other.aliveCheck( ) ) {
             System.out.println( "0. Jab\n1. Kick");
             if (cooldown) {
@@ -92,20 +93,22 @@ public abstract class Character /* implements Talkable */ {
             if ( player.spd >= other.spd && !cooldown) {
                 player.attack( other , actions[n] );
                 if (other.aliveCheck()) {
-                    other.attack( player , "hit");
+                    other.attack( player , other.atkmsg);
                 }
+                cooldowncooldown = false;
             }
             else if ( cooldown ) {
-                other.attack( player , "hit");
+                other.attack( player , other.atkmsg);
                 cooldown = false;
+                cooldowncooldown = true;
             }
             else {
-                other.attack( player , "hit");
+                other.attack( player , other.atkmsg);
                 if (player.aliveCheck()) {
                     player.attack( other , actions[n] );
                 }
             }
-            if ( n == 1 ) {
+            if ( n == 1 && !cooldowncooldown) {
                 cooldown = true;
             }
             Game.battleUpdate( player, other);

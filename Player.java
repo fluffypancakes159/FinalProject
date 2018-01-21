@@ -3,21 +3,28 @@ import java.util.ArrayList;
 public class Player extends Character {
 
     public ArrayList<Item> inventory;
+    public Weapon equipWeapon;
+    public int modatk;
 
     public Player ( ) {
     	this ( "Player" );
     }
 
     public Player ( String n ) {
-    	super ( n );
+    	this ( 30 , 5 , 2 , 1 , 0 , 5 , n );
+        /*
     	level = 1;
         inventory = new ArrayList<Item>();
+        equipWeapon = new Weapon ( );
+        */
     }
 
     public Player ( int hp , int atk , int def , int spd , int exp , int gold , String name ) {
         super ( hp , atk , def , spd , exp , gold , name );
         level = 1;
         inventory = new ArrayList<Item>();
+        equipWeapon = new Weapon();
+        modatk = atk;
     }
 
     public void die ( Enemy other ) {
@@ -94,11 +101,42 @@ public class Player extends Character {
         String level_ = "Level: " + level + "\n";
         String exp_ = "EXP until next level: " + (level * 2 + 5 - exp) + "\n";
         String hp_ = "HP: " + currenthp + "/" + maxhp + "\n";
-        String atk_ = "ATK: " + atk + "\n";
+        String weap_ = "Currently equipped: " + equipWeapon.name + "\n";
+        String atk_ = "ATK: " + atk + " + " + equipWeapon.atk + "\n";
         String def_ = "DEF: " + def + "\n";
         String spd_ = "SPD: " + atk + "\n";
         String gold_ = "Money: $" + gold + "\n";
-        return name_ + level_ + exp_ + hp_ + atk_ + def_ + spd_ + gold_;
+        return name_ + level_ + exp_ + hp_ + weap_ + atk_ + def_ + spd_ + gold_;
+    }
+
+    public void equip ( Weapon equipWeapon ) {
+        if ( inventory.indexOf( equipWeapon) >= 0 &&
+             modatk == atk ) {
+            this.equipWeapon = equipWeapon;
+            this.modatk += equipWeapon.atk;
+            System.out.println( equipWeapon.name + " equipped!\n");
+        }
+        else if ( this.equipWeapon.equals( equipWeapon ) ) {
+            Game.delayedPrintShort( "Already equipped!");
+        }
+
+    }
+
+    public void unequip ( ) {
+        equipWeapon = new Weapon ( );
+        this.modatk = this.atk;
+    }
+
+    public int damage ( Character other , String attackType ) { // updated damage function to account for equipped weapons
+        int damage = modatk - other.def;                 
+        if ( attackType == "kick") {
+            damage += (int)(Math.random() * 3) + 1;
+        }
+        if ( damage < 0 ) {                     
+            damage = 0;                         
+        }
+        other.currenthp = other.currenthp - damage; 
+        return damage;
     }
 
 }
