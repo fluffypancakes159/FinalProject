@@ -318,8 +318,8 @@ public class Game {
     public static void delayedPrint ( String output ) { //give user some time to read text
     	try {
 			System.out.println(output);
-   			// Thread.sleep(1500); 
-   			Thread.sleep(0); 
+   			Thread.sleep(1200); 
+   			// Thread.sleep(0); 
 		} 
 		catch (InterruptedException e) {
     		e.printStackTrace();
@@ -339,8 +339,8 @@ public class Game {
     public static void delayedPrintLong ( String output ) { //give user some time to read text
     	try {
 			System.out.println(output);
-   			// Thread.sleep(2000); 
-   			Thread.sleep(0); 
+   			Thread.sleep(2000); 
+   			// Thread.sleep(0); 
 		} 
 		catch (InterruptedException e) {
     		e.printStackTrace();
