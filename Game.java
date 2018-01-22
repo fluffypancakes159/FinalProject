@@ -13,11 +13,11 @@ public class Game {
 	public static void main(String[] args) {
 		Weapon pen = new Weapon ( 5 , "Pen" , 2);
 		Weapon compass = new Weapon ( 10 , "Compass" , 4);
-		Restorative water = new Restorative ( 5 , "Water Bottle" , 4);
 		Restorative xanax = new Restorative ( 15 , "xanaX" , 7);
 		Scanner input = new Scanner (System.in);
 		String n_;
 		int n; // initialization stuff
+		boolean late = false;
 		if (args.length == 0) {
 			System.out.println( "You need to add a parameter after \"java Game\" ");
 			System.out.println( "Check the README for information.");
@@ -32,7 +32,7 @@ public class Game {
 
 				System.out.println( "Before we start, I'm going to need a name: ");
 				n_ = input.next( );
-				Player A = new Player ( 20 , 4 , 2 , 1 , 0 , 20 , n_ );
+				Player A = new Player ( 50 , 100 , 2 , 1 , 0 , 20 , n_ );
 				Game.delayedPrintLong( "That's a pretty good name, I'm assuming.");
 				Game.delayedPrintLong( "Now, we can start the game...\n");
 
@@ -59,12 +59,12 @@ public class Game {
 
 				Object[] a4a = { "print" , "You: Yeah I'll buy some xanaX."};
 				ChoiceTree ct4a = new ChoiceTree ( "Accept his offer" , a4a );
-				Object[] a4aa = { "Buy" , A , xanax};
+				Object[] a4aa = { "buy" , A , xanax};
 				ChoiceTree ct4aa = new ChoiceTree ( "Buy the xanaX" , a4aa );
 
 				Object[] a4b = { "print" , "Vaper: Looks like we're gonna have a problem then." , "The vaper towers over you threateningly."};
 				ChoiceTree ct4b = new ChoiceTree ( "Refuse his offer and walk away" , a4b );
-				Object[] a4ba = { "battle" , A , new Enemy ( 15 , 4 , 2 , 1 , 5 , 5 , "Vaper") };
+				Object[] a4ba = { "battle" , A , new Enemy ( 15 , 4 , 2 , 1 , 5 , 10 , "Vaper" , "hit") };
 				ChoiceTree ct4ba = new ChoiceTree ( "Engage Vaper" , a4ba );
 
 				Object[] a4c = { "print" , "Vaper: Whoa whoa calm down there buddy I was just kidding." 
@@ -102,6 +102,96 @@ public class Game {
 				ct6b.assimilate( ct3 );
 				ct5.assimilate( ct6c );
 
+				ChoiceTree ct7 = new ChoiceTree ( " " , a );
+
+				Object[] a8a = { "print" , "Teacher: I hope you know that's illegal." , "Teacher: I'm taking points off your participation."};
+				ChoiceTree ct8a = new ChoiceTree ( "\"I was vaping\"" , a8a );
+
+				Object[] a8b = { "print" , "Teacher: Whatever. I'd like to see at least a late pass next time." 
+										 , "You think to yourself, Where would I get a late pass?" };
+				ChoiceTree ct8b = new ChoiceTree ( "\"I had to use the bathroom\"" , a8b);
+
+				Object[] a8c = { "print" , "Teacher: Excuse me?!" };
+				ChoiceTree ct8c = new ChoiceTree ( "\"Shut up\"" , a8c);
+				Object[] a8ca = { "battle" , A , new Enemy ( 20 , 3 , 2 , 2 , 10 , 15 , "Teacher" , "cold call")};
+				ChoiceTree ct8ca = new ChoiceTree ( "Engage Teacher" , a8ca);
+
+				ct7.assimilate( ct8a );
+				ct7.assimilate( ct8b );
+				ct7.assimilate( ct8c );
+				ct8c.assimilate( ct8ca );
+
+				ChoiceTree ct9 = new ChoiceTree ( " " , a );
+
+				Object[] a10y = { "set" , late , false };
+			    ChoiceTree ct10y = new ChoiceTree ( "Enter drafting on time" , a10y );
+			    Object[] a10z = { "set" , late , true };
+			    ChoiceTree ct10z = new ChoiceTree ( "Enter drafting late" , a10z );
+
+				Object[] a10a = { "print" , "You sprint up the Hudson staircase, ignoring the couples and vapers." 
+										  , "You reach drafting class just as the bell rings."
+										  , "That's one crisis averted in this mess of a day." };
+			    ChoiceTree ct10a = new ChoiceTree ( "Take the Hudson staircase" , a10a );
+
+			    Object[] a10b = { "print" , "You take the regular staircase."
+			    						  , "On your way up, you trip over a bunch of rolling backpacks while suffocating."
+			    						  , "After about 15 minutes of being a sardine, you finally reach drafting class." };
+				ChoiceTree ct10b = new ChoiceTree ( "Take the regular staircase" , a10b);
+
+				Object[] a10c = { "print" , "You take the escalators."
+			    						  , "It's very slow, but at least you're not out of breath and will to live."
+			    						  , "However, some kid thinks it's okay to step on your shoes without consequence." };
+				ChoiceTree ct10c = new ChoiceTree ( "Take the escalators" , a10c);
+				Object[] a10ca = {"battle" , A , new Enemy ( 15 , 6 , 1 , 2 , 5 , 10 , "Freshman" , "trip")};
+				ChoiceTree ct10ca = new ChoiceTree( "Engage Freshman" , a10ca);
+				Object[] a10caa = { "print" , "Continuing up, you reach the drafting room after a nice ride."
+											, "You are definitely late." };
+				ChoiceTree ct10caa = new ChoiceTree( "Continue" , a10caa);
+
+				Object[] a10d = { "print" , "You take the elevator while feigning a broken ankle."
+			    						  , "On your way up, you encounter a teacher who doesn't quite believe your act." };
+				ChoiceTree ct10d = new ChoiceTree ( "Take the elevator" , a10d);
+				Object[] a10da = { "battle" , A , new Enemy ( 20 , 4 , 3 , 2 , 10 , 12 , "Teacher" , "reprimand")};
+				ChoiceTree ct10da = new ChoiceTree ( "Engage Teacher" , a10da);
+				Object[] a10daa = { "print" , "Continuing up, you encounter another student doing the same as you."
+											, "There can only be one of you." };
+				ChoiceTree ct10daa = new ChoiceTree( "Continue" , a10daa);
+				Object[] a10daaa = { "battle" , A , new Enemy ( 10 , 6 , 4 , 2 , 10 , 15 , "Student" , "scratche")};
+				ChoiceTree ct10daaa = new ChoiceTree( "Engage Student" , a10daaa);
+				Object[] a10daaaa = { "print" , "Continuing up, you finally reach the drafting room."
+											  , "It appears you are on time." };
+				ChoiceTree ct10daaaa = new ChoiceTree( "Continue" , a10daaaa);
+
+				ct9.assimilate( ct10a );
+				ct10a.assimilate( ct10y );
+				ct9.assimilate( ct10b );
+				ct10b.assimilate( ct10z );
+				ct9.assimilate( ct10c );
+				ct10c.assimilate( ct10ca);
+				ct10ca.assimilate( ct10caa );
+				ct10caa.assimilate( ct10z );
+				ct9.assimilate( ct10d );
+				ct10d.assimilate( ct10da );
+				ct10da.assimilate( ct10daa );
+				ct10daa.assimilate( ct10daaa );
+				ct10daaaa.assimilate( ct10y );
+
+				ChoiceTree ct11 = new ChoiceTree ( "" , a );
+
+				Object[] a11a = { "battle" , A , new Enemy ( 40 , 7 , 4 , 3 , 0 , 999 , "Mr. K" , "program" )};
+				ChoiceTree ct11a = new ChoiceTree ( "Engage Mr. K (in battle)" , a11a );
+
+				Object[] a11b = { "createCodefight" , "Given an array of integers, write a function firstDuplicate( array ) to find the index of the first duplicate element in that array. For array = [1, 2, 3, 4, 5, 1, 1, 2, 2, 3, 4], the output should be firstDuplicate(array) = 5." 
+													, "assert firstDuplicate( [1, 2, 3, 6, 17, 4, 2, 1, 3, 3, 3, 4, 5, 1, 1, 2, 2, 3, 4] ) = 6 " };
+				ChoiceTree ct11b = new ChoiceTree ( "Engage Mr. K (in code battle) (not recommended)" , a11b );
+
+				Object[] a11c = { "bribe" , A };
+				ChoiceTree ct11c = new ChoiceTree ( "Bribe Mr. K" , a11c );
+
+				ct11.assimilate( ct11a );
+				ct11.assimilate( ct11b );
+				ct11.assimilate( ct11c );
+
 				// Actual Game
 
 				Game.delayedPrint( "Your first period APCS class with Mr. K...");
@@ -129,6 +219,53 @@ public class Game {
 				Game.delayedPrint( "You cycle these thoughts inside your head until you reach the door to your math class.");
 
 				ct5.recursiveGo( );
+
+				Game.delayedPrint( "You enter your Precalculus class terribly late." );
+				Game.delayedPrint( "The teacher looks at you with visible disdain.");
+
+				ct7.recursiveGo( );
+
+				Game.delayedPrint( "You quickly try to forget what has occurred." );
+				Game.delayedPrint( "Which is easy, since now you have a bigger problem:");
+				Game.delayedPrint( "Getting to drafting class" );
+				Game.delayedPrint( "On the 3457245892457th floor." );
+				Game.delayedPrint( "On time.");
+				Game.delayedPrint( "You quickly weigh all your options" );
+
+				ct9.recursiveGo( );
+
+				if (late) {
+					Game.delayedPrint( "You enter drafting along with 10 other out-of-breath kids." );
+					Game.delayedPrint( "You're teacher is too busy teaching graph theory to notice you enter.");
+					Game.delayedPrint( "You notice a nice pen on the floor, one too nice to pass up." );
+					A.receive( pen );
+					A.equip( pen );
+					Game.delayedPrint( "Pen equipped!");
+				}
+				else {
+					Game.delayedPrint( "You enter drafting second, only to that kid who somehow is always there first." );
+					Game.delayedPrint( "You go to your desk and notice a nice compass on the floor.");
+					Game.delayedPrint( "Welp, finders keepers, you think to yourself as you reach for the compass.");
+					A.receive( compass );
+					A.equip( compass ); 
+					Game.delayedPrint( "The lesson starts, even though 2 out of 30 students are present." );
+					Game.delayedPrint( "The teacher starts talking about how to draw lines." );
+					Game.delayedPrint( "However after 10 minutes, the lesson devolves into a college-level graph theory lecture." );
+					Game.delayedPrint( "Whatever, you're sure someone out there will make a study sheet anyways." );
+					Game.delayedPrint( "Compass equipped!");
+				}
+
+				Game.delayedPrintLong( "After about 30 minutes of confusing garbage that you definitely didn't sleep through, you're jolted awake by the screech of the end bell.");
+				Game.delayedPrint( "As you leave the classroom, you notice Mr. K outside your classroom.");
+				Game.delayedPrint( "Strange, but an opportunity nonetheless.");
+				Game.delayedPrint( "You run up to Mr. K and request that you receive a 99 instead of a ridiculous 98.");
+				Game.delayedPrint( "Mr. K: If you want this mere point, then you're going to have to prove yourself");
+				Game.delayedPrint( "This is it, the moment of truth.");
+
+				ct11.recursiveGo( );
+
+				Game.delayedPrintLong( "Congrulations on defeating Mr. K ('s apprehension to give you a 99) and receiving that 99!" );
+				Game.delayedPrintLong( "And thank you for playing!" );
 
 			}
 
@@ -162,7 +299,8 @@ public class Game {
 			}
 
 			else if ( args[0].equals("codebattle")) {
-
+				Action.createCodefight( "Write a function TwotoFive( String ) that converts all 2's to 5's and vice versa. Ex: \"21506\" -> \"51206\"" 
+										, "assert TwotoFive( 11245463152342 ) = 11542463125345");
 			}
 			else {
 				System.out.println( "Not a valid input. Check the README for information.");
