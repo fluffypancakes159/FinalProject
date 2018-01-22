@@ -7,11 +7,5 @@
 #ly automatically generated formatting in advance. 
 
 
-#Make a function add(number1, number2), that adds the numbers i.e.: add(1,2) -->
-# 3.
-#add(0,0) --> 0
 
-add = lambda x, y: x+y
-
-assert add(3,5)== 8
 print("Success!")
