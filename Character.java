@@ -69,12 +69,10 @@ public abstract class Character /* implements Talkable */ {
 	    return damage;
     }
 
-    /*
     public int damage ( int d ) {
 	    currenthp -= d;
 	    return d;
     }
-    */
 
     public static boolean useItem ( Player user ) {
         ArrayList<Restorative> list = new ArrayList<Restorative>();
