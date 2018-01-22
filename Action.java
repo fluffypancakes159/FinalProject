@@ -156,14 +156,15 @@ public class Action{
             ((Player)args[1]).receive((Item)args[2]);
             Game.delayedPrintShort( "Received " + ((Item)args[2]).name + "!");
         }
-        /*
         if (args[0].equals("increment")) {
             ((int)args[1]) += ((int)args[2]);
         }
-        */
         if (args[0].equals("heal")) {
             ((Player)args[1]).heal((int)args[2]);
             Game.delayedPrintShort( "Healed " + args[2] + " HP!");
+        }
+        if (args[0].equals("set")) {
+            args[1] = args[2];
         }
     }
 
