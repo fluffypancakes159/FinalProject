@@ -138,12 +138,21 @@ public class Action{
     public void run(Object[] args){
         if (args[0].equals("createCodefight")){
             createCodefight((String)args[1], (String)args[2]);
-        } if (args[0].equals("print")){
-            System.out.println(args[1]);
+        } 
+        if (args[0].equals("print")){
+            for (int i = 1 ; i < args.length ; i++ ) {
+                Game.delayedPrint((String)args[i]);
+            }
         }
         if (args[0].equals("battle")){
             // System.out.println(args[1]);
             Character.battle( (Player)args[1] , (Enemy)args[2] );
+        }
+        if (args[0].equals("buy")) {
+            ((Player)args[1]).buy((Item)args[2]);
+        }
+        if (args[0].equals("receive")) {
+            ((Player)args[1]).receive((Item)args[2]);
         }
     }
 
