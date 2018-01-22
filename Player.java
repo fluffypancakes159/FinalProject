@@ -29,7 +29,8 @@ public class Player extends Character {
 
     public void die ( Enemy other ) {
         if ( currenthp <= 0 ) {
-            System.out.println( "You slowly lose consciousness as your vision fades to black.");
+            Game.delayedPrintShort( "You slowly lose consciousness as your vision fades to black.");
+            Game.delayedPrint( "Perhaps things could've gone differently..." );
             System.exit(0);
         }
         else {
@@ -72,6 +73,16 @@ public class Player extends Character {
 
     public void buy ( Item item ) {
         gold -= item.cost;
+        if ( inventory.indexOf(item) < 0 ) {
+            inventory.add(item);
+            item.quantity = 1;
+        }
+        else {
+            item.quantity++;
+        }
+    }
+
+    public void receive ( Item item ) {
         if ( inventory.indexOf(item) < 0 ) {
             inventory.add(item);
             item.quantity = 1;
@@ -132,8 +143,8 @@ public class Player extends Character {
         if ( attackType == "kick") {
             damage += (int)(Math.random() * 3) + 1;
         }
-        if ( damage < 0 ) {                     
-            damage = 0;                         
+        if ( damage < 1 ) {                     
+            damage = 1;                         
         }
         other.currenthp = other.currenthp - damage; 
         return damage;

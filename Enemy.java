@@ -10,6 +10,12 @@ public class Enemy extends Character {
 		super ( n );
 	}
 
+	public Enemy ( int hp , int atk , int def , int spd , int exp , int gold , String name ) {
+        super ( hp , atk , def , spd , exp , gold , name );
+        this.atkmsg = "hit";
+        level = 1;
+    }
+
 	public Enemy ( int hp , int atk , int def , int spd , int exp , int gold , String name , String atkmsg ) {
         super ( hp , atk , def , spd , exp , gold , name );
         this.atkmsg = atkmsg;
