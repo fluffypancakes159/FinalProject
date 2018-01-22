@@ -2,14 +2,6 @@ import java.util.*;
 
 public class Game {
 
-	// Setting currentLocation;
-
-	/*
-	public void setCurrentLocation ( Setting l ) {
-		currentLocation = l;
-	}
-	*/
-
 	public static void main(String[] args) {
 		Weapon pen = new Weapon ( 5 , "Pen" , 2);
 		Weapon compass = new Weapon ( 10 , "Compass" , 4);
