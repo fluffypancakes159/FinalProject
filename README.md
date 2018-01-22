@@ -36,12 +36,20 @@ And let's say you want to go to sleep. You would enter in `4`, **not** `5`, but 
 
 When you're battling, you have 3 options: 
 
-- Jabbing
+- Poking
 - Kicking
 - Item
 
-Jabbing is just a basic attack based on your equipped weapon.
+Poking is just a basic attack based on your equipped weapon.
 
 Kicking is a stronger attack, but it leaves you on cooldown for the next attack.
 
 Items allows you to heal yourself using a restorative item during battle. The way the battle system is structured, you can use items while on cooldown, so maximize your damage by kicking before healing!
+
+## Code Battling
+
+**IMPORTANT: CODE BATTLING NEEDS GEDIT TO WORK**
+
+Code Battling tests your knowledge of Python using Java code. When you enter a code battle, a gedit window will open, and your job is to write correct Python code based on the question given.
+
+In order to submit the code, you must close the window. If the code works, then you will move on with your life. But if not, then the window will reopen and you will have to try again.
