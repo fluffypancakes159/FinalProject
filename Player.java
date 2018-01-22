@@ -72,13 +72,18 @@ public class Player extends Character {
     }
 
     public void buy ( Item item ) {
-        gold -= item.cost;
-        if ( inventory.indexOf(item) < 0 ) {
-            inventory.add(item);
-            item.quantity = 1;
+        if ( gold >= item.cost ) {
+            gold -= item.cost;
+            if ( inventory.indexOf(item) < 0 ) {
+                inventory.add(item);
+                item.quantity = 1;
+            }
+            else {
+                item.quantity++;
+            }
         }
         else {
-            item.quantity++;
+            Game.delayedPrintShort( "Sorry, not enough money!");
         }
     }
 
