@@ -1,13 +1,34 @@
+import java.util.*;
+
 public class Game {
 
-	Setting currentLocation;
+	// Setting currentLocation;
 
+	/*
 	public void setCurrentLocation ( Setting l ) {
 		currentLocation = l;
 	}
+	*/
 
 	public static void main(String[] args) {
-		
+		if (isEmpty(args)) {
+			System.out.println( "You need to add a parameter after \"java Game\" ");
+			System.out.println( "Check the README for information.");
+		}
+		else {
+			if ( args[0].equals("game")) {
+
+			}
+			else if ( arg[0].equals("battle")) {
+
+			}
+			else if ( arg[0].equals("codebattle")) {
+
+			}
+			else {
+				System.out.println( "Not a valid input. Check the README for information.");
+			}
+		}
 	}
 
 	public static void battleUpdate ( Character player , Character other ) {
