@@ -34,6 +34,8 @@ And let's say you want to go to sleep. You would enter in `4`, **not** `5`, but 
 
 ## Battling
 
+Oh dear, you've entered a battle! Here's a basic tutorial for a basic battle system:
+
 When you're battling, you have 3 options: 
 
 - Poking
@@ -48,7 +50,7 @@ Items allows you to heal yourself using a restorative item during battle. The wa
 
 ## Code Battling
 
-**IMPORTANT: CODE BATTLING NEEDS GEDIT TO WORK**
+**IMPORTANT: CODE BATTLING NEEDS GEDIT TO BE RUNNABLE FROM THE TERMINAL USING THE `gedit` KEYWORD TO WORK**
 
 Code Battling tests your knowledge of Python using Java code. When you enter a code battle, a gedit window will open, and your job is to write correct Python code based on the question given.
 
