@@ -17,7 +17,6 @@ public abstract class Character /* implements Talkable */ {
     public int exp;
     public int gold;
     public String name;
-    public Setting setting;
     
     public Character ( ) {
         this ( 30 , 5 , 2 , 1 , 0 , 0 , "Test" );
@@ -71,8 +70,8 @@ public abstract class Character /* implements Talkable */ {
     }
 
     public int damage ( int d ) {
-	   currenthp -= d;
-	   return d;
+	    currenthp -= d;
+	    return d;
     }
 
     public static boolean useItem ( Player user ) {
@@ -124,13 +123,13 @@ public abstract class Character /* implements Talkable */ {
     }
 
     public static void battle ( Player player, Enemy other ) {
-        String[] actions = { "jab" , "kick" , "item"}; // more choices will be added
+        String[] actions = { "poke" , "kick" , "item"}; // more choices will be added
         Scanner input = new Scanner(System.in);
         Game.battleUpdate(player, other);
         boolean cooldown = false;
         boolean cooldowncooldown = false;
         while ( player.aliveCheck( ) && other.aliveCheck( ) ) {
-            System.out.println( "0. Jab\n1. Kick\n2. Item");
+            System.out.println( "0. Poke\n1. Kick\n2. Item");
             if (cooldown) {
                 System.out.print( "**ON COOLDOWN**" );
             }
