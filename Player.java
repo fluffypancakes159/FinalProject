@@ -55,6 +55,7 @@ public class Player extends Character {
             Game.delayedPrint( "You leveled up to " + level + "!");
             int m = (int)(Math.random() * 3 + 3);
             maxhp += m;
+            currenthp += maxhp - currenthp;
             Game.delayedPrintShort ( "HP increased by " + m + "!");
             m = (int)(Math.random() * 3 + 1);
             atk += m;
