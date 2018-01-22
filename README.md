@@ -31,3 +31,17 @@ Menus such as these will appear:
 4. Go to sleep
 
 And let's say you want to go to sleep. You would enter in `4`, **not** `5`, but `4`.
+
+## Battling
+
+When you're battling, you have 3 options: 
+
+- Jabbing
+- Kicking
+- Item
+
+Jabbing is just a basic attack based on your equipped weapon.
+
+Kicking is a stronger attack, but it leaves you on cooldown for the next attack.
+
+Items allows you to heal yourself using a restorative item during battle. The way the battle system is structured, you can use items while on cooldown, so maximize your damage by kicking before healing!
