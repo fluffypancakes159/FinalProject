@@ -63,6 +63,8 @@ When you level up, each stat increases randomly from an amount between 1 and 3 a
 
 **IMPORTANT: CODE BATTLING NEEDS GEDIT TO BE RUNNABLE FROM THE TERMINAL USING THE `gedit` KEYWORD TO WORK**
 
+**ALSO PYTHON NEEDS TO BE RUNNABLE USING `python`**
+
 Code Battling tests your knowledge of Python using Java code. When you enter a code battle, a gedit window will open, and your job is to write correct Python code based on the question given.
 
 In order to submit the code, you must close the window. If the code works, then you will move on with your life. But if not, then the window will reopen and you will have to try again.
