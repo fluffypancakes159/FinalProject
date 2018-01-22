@@ -33,13 +33,14 @@ public class Game {
 				System.out.println( "Before we start, I'm going to need a name: ");
 				n_ = input.next( );
 				Player A = new Player ( 20 , 4 , 2 , 1 , 0 , 20 , n_ );
-				Game.delayedPrintLong( "That's a pretty good name I'm assuming.");
+				Game.delayedPrintLong( "That's a pretty good name, I'm assuming.");
 				Game.delayedPrintLong( "Now, we can start the game...\n");
 
 				// Story Initialization
 
-				Object[] a = { "print" , "What to do?" };
-				ChoiceTree ct1 = new ChoiceTree ( "" , a );
+				// Object[] a = { "print" , "What to do?" };
+				Object[] a = { "" };
+				ChoiceTree ct1 = new ChoiceTree ( "What to do?" , a );
 
 				Object[] a2a = { "print" , "Classmate: I know what you mean. I got a 100 but I got the extra credit wrong. UGH!" 
 										 , "You: I know right... I got that exactly for my physics test. She only gave me partial credit on the bonus!" 
@@ -54,7 +55,7 @@ public class Game {
 				ct1.assimilate( ct2b );
 				ct2a.assimilate( ct2b );
 
-				ChoiceTree ct3 = new ChoiceTree ( "" , a );
+				ChoiceTree ct3 = new ChoiceTree ( "Enter the bathroom" , a );
 
 				Object[] a4a = { "print" , "You: Yeah I'll buy some xanaX."};
 				ChoiceTree ct4a = new ChoiceTree ( "Accept his offer" , a4a );
@@ -80,6 +81,27 @@ public class Game {
 				ct3.assimilate( ct4c );
 				ct4c.assimilate( ct4ca );
 
+				ChoiceTree ct5 = new ChoiceTree ( "Go back to math class" , a );
+
+				Object[] a6a = { "print" , "You go to the water fountain." , "Refreshing!" };
+				ChoiceTree ct6a = new ChoiceTree ( "Go get a drink of water" , a6a );
+				Object[] a6aa = { "heal" , A , 5 };
+				ChoiceTree ct6aa = new ChoiceTree ( "Drink the water." , a6aa );
+
+				Object[] a6b = { "print" , "You decide you need to urinate some more and you return to the bathroom."
+										  , "Of course, the vapers are still there." };
+				ChoiceTree ct6b = new ChoiceTree ( "Go back to the bathroom" , a6b );
+
+				Object[] a6c = { "print" , "You decide to enter the lion's den: Precalculus" };
+				ChoiceTree ct6c = new ChoiceTree ( "Enter your math class" , a6c );
+
+				ct5.assimilate( ct6a );
+				ct6a.assimilate( ct6aa );
+				ct6aa.assimilate( ct5 );
+				ct5.assimilate( ct6b );
+				ct6b.assimilate( ct3 );
+				ct5.assimilate( ct6c );
+
 				// Actual Game
 
 				Game.delayedPrint( "Your first period APCS class with Mr. K...");
@@ -98,6 +120,15 @@ public class Game {
 				Game.delayedPrint( "Vaper: Hey kid, you want some xanaX? I'll hook you up for $15");
 
 				ct3.recursiveGo( );
+
+				Game.delayedPrint( "You leave the bathroom after that interesting experience." );
+				Game.delayedPrint( "As you exit, you hear the late bell ring.");
+				Game.delayedPrint( "Great, I'm late for math class, you think to yourself.");
+				Game.delayedPrint( "First I fail my APCS test and now I'm late to class.");
+				Game.delayedPrint( "I'm not getting into college.");
+				Game.delayedPrint( "You cycle these thoughts inside your head until you reach the door to your math class.");
+
+				ct5.recursiveGo( );
 
 			}
 
@@ -149,7 +180,8 @@ public class Game {
     public static void delayedPrint ( String output ) { //give user some time to read text
     	try {
 			System.out.println(output);
-   			Thread.sleep(1500); 
+   			// Thread.sleep(1500); 
+   			Thread.sleep(0); 
 		} 
 		catch (InterruptedException e) {
     		e.printStackTrace();
@@ -169,7 +201,8 @@ public class Game {
     public static void delayedPrintLong ( String output ) { //give user some time to read text
     	try {
 			System.out.println(output);
-   			Thread.sleep(2000); 
+   			// Thread.sleep(2000); 
+   			Thread.sleep(0); 
 		} 
 		catch (InterruptedException e) {
     		e.printStackTrace();
