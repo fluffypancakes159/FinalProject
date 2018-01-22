@@ -6,9 +6,9 @@ public class ChoiceTree{
 
     public ArrayList<ChoiceTree> data = new ArrayList<ChoiceTree>();
     public String prompt;
-    public String[] action;
+    public Object[] action;
 
-    public ChoiceTree(String p, String[] a){
+    public ChoiceTree(String p, Object[] a){
 
         prompt = p;
         action = a;
