@@ -48,6 +48,17 @@ Kicking is a stronger attack, but it leaves you on cooldown for the next attack.
 
 Items allows you to heal yourself using a restorative item during battle. The way the battle system is structured, you can use items while on cooldown, so maximize your damage by kicking before healing!
 
+### Stats
+
+The stats are as follows:
+
+- HP: amount of damage you can take before you die
+- ATK: amount of damage you deal
+- DEF: amount of damage you reduce
+- SPD: determines who goes first (player gets precedence)
+
+When you level up, each stat increases randomly from an amount between 1 and 3 and you are fully healed.
+
 ## Code Battling
 
 **IMPORTANT: CODE BATTLING NEEDS GEDIT TO BE RUNNABLE FROM THE TERMINAL USING THE `gedit` KEYWORD TO WORK**
